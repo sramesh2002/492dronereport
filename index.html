@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>ECE492 Spring 2023</title>
+    <style>
+        h1 {
+            text-align: center;
+          }
+        h2 {
+            text-align: center;
+          }
+      /* Style the tabs */
+      .tab {
+        display: flex;
+        justify-content: space-evenly; 
+        overflow: hidden;
+        background-color: #b70c0c;
+      }
+
+      /* Style the buttons that are used to open the tab content */
+      .tab button {
+        background-color: inherit;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        padding: 14px 16px;
+        transition: 0.3s;
+        font-size: 17px;
+        color: #ffffff; 
+      }
+
+      /* Change background color of buttons on hover */
+      .tab button:hover {
+        background-color: #ddd;
+      }
+
+      /* Create an active/current tablink class */
+      .tab button.active {
+        background-color: #ccc;
+      }
+
+      /* Style the tab content */
+      .tabcontent {
+        display: none;
+        padding: 6px 12px;
+        border: 1px solid #929292;
+        border-top: none;
+      }
+      table {
+        border-spacing: 50px; /* set the spacing between columns */
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Stack Inpsection</h1>
+    <div class="tab">
+      <button class="tablinks" onclick="openTab(event, 'Home')" id="defaultOpen">Home</button>
+      <button class="tablinks" onclick="openTab(event, 'Project')">Project Description</button>
+      <button class="tablinks" onclick="openTab(event, 'Problems')">Problems & Solutions</button>
+      <button class="tablinks" onclick="openTab(event, 'Hardware')">Hardware</button>
+      <button class="tablinks" onclick="openTab(event, 'Software')">Software</button>
+    </div>
+
+    <div id="Home" class="tabcontent">
+      <h2>Home</h2>
+      <h3>Team</h3>
+      <p>Chandler Beiler: cbeiler@ncsu.edu<br>
+         Anupam Mijar: aamijar@ncsu.edu<br>
+         Scott Burnett: srburne2@ncsu.edu <br>
+         Roshan Raju: rrraju@ncsu.edu<br>
+         Sreedhar Ramesh: sramesh6@ncsu.edu<br>
+      </p>
+      <h3>Final Project Report</h3>
+      <div class="row bg-white pl-2 pb-4 justify-content-md-center">
+        <embed src="./pdf/finalReport.pdf" width="500" height="700">
+      </div>
+       <h3>Final Video</h3>
+       <div class="row bg-white pl-2 pb-4 justify-content-md-center">
+        <embed src="./video/finalVideo.mp4" width="700" height="500">
+      </div>
+      <h3>Full Demo Video</h3>
+       <div class="row bg-white pl-2 pb-4 justify-content-md-center">
+        <embed src="./video/demoVideo.mp4" width="700" height="500">
+      </div>
+    </div>
+
+    <div id="Project" class="tabcontent">
+      <h2>Project Description</h2>
+      <p>Description</p>
+    </div>
+
+    <div id="Problems" class="tabcontent">
+      <h2>Problem & Solutions</h2>
+      <table>
+        <tr>
+          <th>Problem</th>
+          <th>Solution</th>
+        </tr>
+        <tr>
+          <td>The lidar module we got, RPLidar S2,<br>
+            was really new and did not have direct<br>
+            Python support yet</td>
+            <td>Anupam exposed some of the <br>
+            RPLidar C++ SDK and then used <br>
+            Boost library to allow us to <br>
+            use the lidar in our python script </td>
+        </tr>
+        <tr>
+          <td>Row 2, Column 1</td>
+          <td>Row 2, Column 2</td>
+        </tr>
+      </table>
+    </div>
+
+    <div id="Hardware" class="tabcontent">
+      <h2>Hardware</h2>
+      <p>Hardware</p>
+    </div>
+
+    <div id="Software" class="tabcontent">
+      <h2>Software</h2>
+      <p>
+        <h3>General Raspberry Pi 4/GCS Dependencies</h3>
+        <a href="https://www.python.org/">Python</a><br>
+        <a href="https://ubuntu.com/download/raspberry-pi">Ubuntu 22.04 LTS</a><br>
+        <a href="http://qgroundcontrol.com/">QGroundControl</a><br>
+        <a href="https://ardupilot.org/mavproxy/">MavProxy</a><br>
+        <a href="https://pip.pypa.io/en/stable/cli/pip_install/">PIP</a><br>
+        <a href="https://github.com/dronekit/dronekit-python">Dronekit</a><br>
+        <a href="https://ardupilot.org/dev/docs/sitl-simulator-software-in-the-loop.html">SITL</a><br>
+        <h3>Python Script Dependencies</h3>
+        <a href="https://github.com/Slamtec/rplidar_sdk/tree/45431f11f64acf8cc145df84b1b61e9d45d0029b">RPLidar C++ SDK</a><br>
+        <a href="https://www.boost.org/">Boost</a><br>
+        <a href="https://jsonapi.org/">JSON</a><br>
+        <a href="https://docs.python.org/3/library/threading.html">threading</a><br>
+        <a href="https://pypi.org/project/sshkeyboard/">SSH Keyboard</a><br>
+        <a href="https://docs.python.org/3/library/tkinter.html">tkinter</a><br>
+        <a href="https://numpy.org/">numpy</a><br>
+        <a href="https://matplotlib.org/">matplotlib</a><br>
+        <a href="https://www.ardusub.com/developers/pymavlink.html">pymavlink</a><br>
+        <a href="https://docs.python.org/3/library/time.html">time</a><br>
+        <a href="https://docs.python.org/3/library/math.html">math</a><br>
+      </p>
+    </div>
+
+    <script>
+      function openTab(evt, tabName) {
+        // Declare all variables
+        var i, tabcontent, tablinks;
+
+        // Get all elements with class="tabcontent" and hide them
+        tabcontent = document.getElementsByClassName("tabcontent");
+        for (i = 0; i < tabcontent.length; i++) {
+          tabcontent[i].style.display = "none";
+        }
+
+        // Get all elements with class="tablinks" and remove the class "active"
+        tablinks = document.getElementsByClassName("tablinks");
+        for (i = 0; i < tablinks.length; i++) {
+          tablinks[i].className = tablinks[i].className.replace(" active", "");
+        }
+
+        // Show the current tab, and add an "active" class to the button that opened the tab
+        document.getElementById(tabName).style.display = "block";
+        evt.currentTarget.className += "active";
+    }
+      // Get the element with id="defaultOpen" and click on it
+  document.getElementById("defaultOpen").click();
+</script>
+</body>
+</html>
+
