@@ -88,19 +88,19 @@
           </td>
           <td>
             There is a plugin to QGroundControl that can do this, however it is difficult to set up and load
-            An alternate solution is to take the drone’s GPS coordinates from SITL (which are actually extremely accurate and low noise) and feed that into a python program with walls.
+            An alternate solution is to take the drone's GPS coordinates from SITL (which are actually extremely accurate and low noise) and feed that into a python program with walls.
 
           </td>
         </tr>
       </table>
       <h3>Information on set_attitude and set velocity</h3>
-      <p>The set attitude function generally isn’t as good as the set velocity function. It has mask bits which can impact the functionality of the function.<br>
+      <p>The set attitude function generally isn't as good as the set velocity function. It has mask bits which can impact the functionality of the function.<br>
         <li>The set attitude function also has a substantial offset that builds over time, and varies from drone to drone.</li>
         <li>Sometimes, especially if the mask bits are off, the drone’s log file would actually claim to have a particular attitude but the drone in real life would clearly be doing something different.</li>
         <br>
         The set velocity function is generally better than the set attitude function and it also has mask bits to be aware of.<br>
         <li>It appears to use both the accelerometer & GPS to eliminate the offsets while allowing the drone to respond quickly.</li>
-        <li>Setting the drone’s yaw with this function can be tricky. Some function settings claim to set the drone’s yaw position (like the drone turns and then stops at a compass position). This happens in SITL. However, in real life the drone would keep spinning at a velocity.</li>
+        <li>Setting the drone's yaw with this function can be tricky. Some function settings claim to set the drone’s yaw position (like the drone turns and then stops at a compass position). This happens in SITL. However, in real life the drone would keep spinning at a velocity.</li>
         <li>The set yaw velocity approach is best since it works both in SITL and real life. That is what we used.</li>
         </p>
         <h3>Additional infomation on simulated lidar</h3>
